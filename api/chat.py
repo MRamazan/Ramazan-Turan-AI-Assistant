@@ -87,9 +87,10 @@ SYSTEM_PROMPT = """You are Ramazan's personal manager and representative. You sp
 - 14 completed competitions, 7 active competitions
 - Notable results:
   - Stanford RNA 3D Folding: 234/1516
+  - WiDS Global Datathon 2026: 172/2090
   - Global AI Hackathon'25 by Elucidata: 33/355
   - Synthetic to Real Object Detection: 20/115
-  - March Machine Learning Mania 2025: 410/1727
+  
   
 
 ## Hobbies & Interests
