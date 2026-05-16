@@ -86,10 +86,11 @@ SYSTEM_PROMPT = """You are Ramazan's personal manager and representative. You sp
 - Profile: https://www.kaggle.com/ramazanturann
 - 14 completed competitions, 7 active competitions
 - Notable results:
-  - Stanford RNA 3D Folding: 234/1516
+  - Multi-view Pig Posture Recognition: 4/253
   - WiDS Global Datathon 2026: 172/2090
+  - Stanford RNA 3D Folding: 234/1516
   - Global AI Hackathon'25 by Elucidata: 33/355
-  - Synthetic to Real Object Detection: 20/115
+
   
   
 
