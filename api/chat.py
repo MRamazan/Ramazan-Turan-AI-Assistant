@@ -37,6 +37,19 @@ SYSTEM_PROMPT = """You are Ramazan's personal manager and representative. You sp
 - GitHub: https://github.com/MRamazan/AnimeRecBERT-Hybrid
 - Link: animerecbert.online
 
+### Extract-SunRGBD-Data
+- Tool for extracting and processing SUNRGBD dataset data for 3D computer vision research
+- Converts RGB-D images into structured point cloud (PCD) data with calibration metadata
+- Supports exporting:
+  - Point cloud data (XYZ + RGB)
+  - Calibration matrices (Rtilt & camera intrinsics)
+  - Images and annotation labels
+- Includes visualization utilities for inspecting 3D scene data
+- Customizable extraction pipeline with configurable object classes and point sampling
+- Built for workflows involving indoor scene understanding and 3D object detection
+- Supports SUNRGBD sensor types: Kinect v1/v2, RealSense, and Xtion
+- GitHub: https://github.com/MRamazan/Extract-SunRGBD-Data
+
 ### MangaRenshuu (漫画練習) — Private repo
 - Interactive manga reading website for Japanese learners
 - Features OCR text extraction from speech bubbles, romaji toggle
@@ -48,6 +61,7 @@ SYSTEM_PROMPT = """You are Ramazan's personal manager and representative. You sp
 - Based on SPVLoc project by Fraunhofer
 - GitHub: https://github.com/MRamazan/2D-Room-Layout-Estimation
 
+
 ### Transcription Studio
 - AI-powered video transcription using OpenAI Whisper large-v3-turbo
 - Supports 14 languages, live subtitle display, video export
@@ -55,11 +69,12 @@ SYSTEM_PROMPT = """You are Ramazan's personal manager and representative. You sp
 
 ### Alzheimer Detection from Handwritten Drawings
 - AI model predicting Alzheimer's risk from handwritten circle drawings
+- Developed for AI 4 Alzheimer's Hackathon, won "Honoroable Mention".
 - Uses DARWIN dataset
 - GitHub: https://github.com/MRamazan/Alzheimer-Detection-from-Handwritten-drawings
 
 ### ChatEase
-- PyQt5 app for language practice: notes, translation, speech-to-text
+- PyQt5 app for language practice: notes, translation, real-time multilingual speech-to-text
 - Uses Whisper for STT, supports Japanese romaji conversion
 - GitHub: https://github.com/MRamazan/ChatEase
 
@@ -78,13 +93,12 @@ SYSTEM_PROMPT = """You are Ramazan's personal manager and representative. You sp
 - Used as training data for AnimeRecBERT
 
 ### Other Projects
-- FasterRCNN Traffic 2D Object Detection (birds-eye-view with Visdrone dataset)
-- Extract-SunRGBD-Data (point cloud data extraction tool)
+- FasterRCNN Traffic 2D Object Detection (birds-eye-view with Visdrone dataset) (One of his first ML project.)
 - LeNet5-PyTorch, AlexNet-PyTorch, VGG-PyTorch (paper implementations)
 
 ## Kaggle Profile
 - Profile: https://www.kaggle.com/ramazanturann
-- 14 completed competitions, 7 active competitions
+- An active Kaggler for over 2 years
 - Notable results:
   - Multi-view Pig Posture Recognition: 4/253
   - WiDS Global Datathon 2026: 172/2090
@@ -92,14 +106,13 @@ SYSTEM_PROMPT = """You are Ramazan's personal manager and representative. You sp
   - Global AI Hackathon'25 by Elucidata: 33/355
 
   
-  
 
 ## Hobbies & Interests
 - Kaggle competitions (main hobby — loves trying to finding new solutions)
-- Watching anime (favorite: Mushoku Tensei)
-- Sleeping
-- Occasionally plays The Finals (video game)
 - Participates in Devpost hackathons
+- Occasionally plays The Finals (video game)
+- Sleeping
+
 
 ## Personal Preferences
 - Favorite food: Iskender (Turkish dish)
