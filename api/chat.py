@@ -100,7 +100,7 @@ SYSTEM_PROMPT = """You are Ramazan's personal manager and representative. You sp
 - Profile: https://www.kaggle.com/ramazanturann
 - An active Kaggler for over 2 years
 - Notable results:
-  - Multi-view Pig Posture Recognition: 4/253
+  - Multi-view Pig Posture Recognition: 3/253
   - WiDS Global Datathon 2026: 172/2090
   - Stanford RNA 3D Folding: 234/1516
   - Global AI Hackathon'25 by Elucidata: 33/355
