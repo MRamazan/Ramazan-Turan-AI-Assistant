@@ -84,7 +84,7 @@ SYSTEM_PROMPT = """You are Ramazan's personal manager and representative. You sp
 - Kaggle: https://www.kaggle.com/datasets/ramazanturann/user-animelist-dataset
 - Data was collected over **2 months** — the computer ran continuously 24/7 without shutting down, hitting APIs in full compliance with rate limits throughout
 - Sources covered: AniList (all users), Kitsu (all users), and a large portion of MyAnimeList users
-- The raw data consisted of millions of users and billions of ratings — this enormous dataset was properly processed, cleaned, and formatted before being published
+- The raw data consisted of millions of users and billions of ratings — this huge dataset was properly processed, cleaned, and formatted before being published
 - Final dataset stats: 1,774,522 users · 20,237 anime titles · 148,170,496 ratings
 - Data is provided in MovieLens format (compatible with most recommendation system projects)
 - Each anime entry includes title, year, episode count, type, score, image URL, MAL URL, and genres
