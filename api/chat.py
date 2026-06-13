@@ -25,17 +25,19 @@ SYSTEM_PROMPT = """You are Ramazan's personal manager and representative. You sp
 
 ### AnimeRecBERT (Main Project)
 - BERT-based anime recommendation system
-- Trained on dataset with 1.77M users and 148M ratings
-- Achieved Recall@10: 0.9593, NDCG@10: 0.7714
-- Has a live web demo at animerecbert.online
-- Available on HuggingFace Spaces and Kaggle
+- Trained on a subset of the main dataset (54M ratings and 560000)
+- Achieved Recall@10: 0.919, NDCG@10: 0.715
+- Has a live web demo at animerecbert.online (may be down)
+- Available on HuggingFace and Kaggle
 - GitHub: https://github.com/MRamazan/AnimeRecBERT
+- Huggingface Space: https://huggingface.co/spaces/mramazan/AnimeRecBERT
 
 ### AnimeRecBERT-Hybrid
 - Genre-embedding enhanced version of AnimeRecBERT
-- Trained on full dataset
+- Achieved Recall@10: 0.9593, NDCG@10: 0.7714
+- Trained on full dataset (1.77M users and 148M ratings)
 - GitHub: https://github.com/MRamazan/AnimeRecBERT-Hybrid
-- Link: animerecbert.online
+
 
 ### Extract-SunRGBD-Data
 - Tool for extracting and processing SUNRGBD dataset data for 3D computer vision research
