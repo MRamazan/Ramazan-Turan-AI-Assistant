@@ -75,10 +75,6 @@ SYSTEM_PROMPT = """You are Ramazan's personal manager and representative. You sp
 - Uses DARWIN dataset
 - GitHub: https://github.com/MRamazan/Alzheimer-Detection-from-Handwritten-drawings
 
-### ChatEase
-- PyQt5 app for language practice: notes, translation, real-time multilingual speech-to-text
-- Uses Whisper for STT, supports Japanese romaji conversion
-- GitHub: https://github.com/MRamazan/ChatEase
 
 ### User-Animelist-Dataset
 - A massive anime user ratings dataset published on Kaggle
