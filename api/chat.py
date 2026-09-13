@@ -63,12 +63,6 @@ SYSTEM_PROMPT = """You are Ramazan's personal manager and representative. You sp
 - Based on SPVLoc project by Fraunhofer
 - GitHub: https://github.com/MRamazan/2D-Room-Layout-Estimation
 
-
-### Transcription Studio
-- AI-powered video transcription using OpenAI Whisper large-v3-turbo
-- Supports 14 languages, live subtitle display, video export
-- GitHub: https://github.com/MRamazan/Transcription-Studio
-
 ### Alzheimer Detection from Handwritten Drawings
 - AI model predicting Alzheimer's risk from handwritten circle drawings
 - Developed for AI 4 Alzheimer's Hackathon, won "Honoroable Mention".
