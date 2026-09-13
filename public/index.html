@@ -230,8 +230,58 @@
       color: #fff;
     }
 
-    .msg-bubble a { color: var(--accent); text-decoration: underline; }
-    .msg.user .msg-bubble a { color: #bfdbfe; }
+    .msg.bot .msg-bubble { max-width: 90%; }
+
+    .msg-bubble a {
+      color: var(--accent);
+      text-decoration: none;
+      border-bottom: 1px solid var(--accent-mid);
+      overflow-wrap: anywhere;
+      word-break: break-word;
+      transition: border-color 0.15s, color 0.15s;
+    }
+
+    .msg-bubble a:hover {
+      color: #1d4ed8;
+      border-bottom-color: #60a5fa;
+    }
+
+    .msg.user .msg-bubble a {
+      color: #bfdbfe;
+      border-bottom-color: #93c5fd;
+    }
+
+    .msg-bubble p { margin: 0 0 8px; }
+    .msg-bubble p:last-child { margin-bottom: 0; }
+
+    .msg-bubble h1,
+    .msg-bubble h2,
+    .msg-bubble h3 {
+      font-size: 14px;
+      line-height: 1.35;
+      font-weight: 600;
+      color: var(--text);
+      margin: 15px 0 6px;
+      padding-top: 13px;
+      border-top: 1px solid var(--border-light);
+    }
+
+    .msg-bubble h1:first-child,
+    .msg-bubble h2:first-child,
+    .msg-bubble h3:first-child {
+      margin-top: 0;
+      padding-top: 0;
+      border-top: 0;
+    }
+
+    .msg-bubble ul,
+    .msg-bubble ol {
+      margin: 6px 0 10px;
+      padding-left: 20px;
+    }
+
+    .msg-bubble li { margin: 3px 0; }
+    .msg-bubble strong { font-weight: 600; }
 
     .typing {
       display: flex;
@@ -418,12 +468,145 @@
       messagesEl.scrollTop = messagesEl.scrollHeight;
     }
 
+    function escapeHtml(value) {
+      return String(value)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#39;');
+    }
+
+    function trimTrailingUrlPunctuation(value) {
+      let url = value;
+      let trailing = '';
+
+      while (/[.,!?;:]$/.test(url)) {
+        trailing = url.slice(-1) + trailing;
+        url = url.slice(0, -1);
+      }
+
+      const pairs = [
+        ['(', ')'],
+        ['[', ']'],
+        ['{', '}']
+      ];
+
+      let changed = true;
+      while (changed && url) {
+        changed = false;
+        for (const [open, close] of pairs) {
+          if (!url.endsWith(close)) continue;
+          const opens = url.split(open).length - 1;
+          const closes = url.split(close).length - 1;
+          if (closes > opens) {
+            trailing = close + trailing;
+            url = url.slice(0, -1);
+            changed = true;
+          }
+        }
+      }
+
+      return { url, trailing };
+    }
+
+    function safeUrl(value) {
+      try {
+        const parsed = new URL(value);
+        return parsed.protocol === 'http:' || parsed.protocol === 'https:' ? value : null;
+      } catch {
+        return null;
+      }
+    }
+
+    function renderPlainText(value) {
+      return escapeHtml(value).replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+    }
+
+    function renderInline(value) {
+      const source = String(value);
+      const tokenPattern = /\[([^\]\n]*)\]\((https?:\/\/[^\s)]+)\)|(https?:\/\/[^\s<>"']+)/gi;
+      let html = '';
+      let cursor = 0;
+      let match;
+
+      while ((match = tokenPattern.exec(source)) !== null) {
+        html += renderPlainText(source.slice(cursor, match.index));
+
+        const originalUrl = match[2] || match[3];
+        const { url, trailing } = trimTrailingUrlPunctuation(originalUrl);
+        const validUrl = safeUrl(url);
+
+        if (validUrl) {
+          const escapedUrl = escapeHtml(validUrl);
+          html += `<a href="${escapedUrl}" target="_blank" rel="noopener noreferrer">${escapedUrl}</a>`;
+          html += renderPlainText(trailing);
+        } else {
+          html += renderPlainText(match[0]);
+        }
+
+        cursor = match.index + match[0].length;
+      }
+
+      html += renderPlainText(source.slice(cursor));
+      return html;
+    }
+
     function formatText(text) {
-      return text
-        .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
-        .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
-        .replace(/(https?:\/\/[^\s<]+)/g, '<a href="$1" target="_blank">$1</a>')
-        .replace(/\n/g, '<br>');
+      const lines = String(text).replace(/\r\n?/g, '\n').split('\n');
+      let html = '';
+      let activeList = null;
+
+      const closeList = () => {
+        if (!activeList) return;
+        html += `</${activeList}>`;
+        activeList = null;
+      };
+
+      for (const line of lines) {
+        const trimmed = line.trim();
+
+        if (!trimmed) {
+          closeList();
+          continue;
+        }
+
+        const heading = trimmed.match(/^(#{1,3})\s+(.+)$/);
+        if (heading) {
+          closeList();
+          const level = Math.min(3, heading[1].length);
+          html += `<h${level}>${renderInline(heading[2])}</h${level}>`;
+          continue;
+        }
+
+        const unordered = line.match(/^\s*[-*]\s+(.+)$/);
+        if (unordered) {
+          if (activeList !== 'ul') {
+            closeList();
+            html += '<ul>';
+            activeList = 'ul';
+          }
+          html += `<li>${renderInline(unordered[1])}</li>`;
+          continue;
+        }
+
+        const ordered = line.match(/^\s*\d+[.)]\s+(.+)$/);
+        if (ordered) {
+          if (activeList !== 'ol') {
+            closeList();
+            html += '<ol>';
+            activeList = 'ol';
+          }
+          html += `<li>${renderInline(ordered[1])}</li>`;
+          continue;
+        }
+
+        closeList();
+        html += `<p>${renderInline(line)}</p>`;
+      }
+
+      closeList();
+      return html;
     }
 
     function addTyping() {
