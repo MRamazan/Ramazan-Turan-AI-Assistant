@@ -163,7 +163,7 @@ class handler(BaseHTTPRequestHandler):
 
         try:
             response = client.chat.completions.create(
-                model="llama-3.3-70b-versatile",
+                model="gpt-oss-120b",
                 messages=full_messages,
                 max_tokens=500
             )
