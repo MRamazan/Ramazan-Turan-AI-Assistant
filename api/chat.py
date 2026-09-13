@@ -23,7 +23,7 @@ SYSTEM_PROMPT = """You are Ramazan's personal manager and representative. You sp
 
 ## Projects
 
-### AnimeRecBERT (Main Project)
+### AnimeRecBERT 
 - BERT-based anime recommendation system
 - Trained on a subset of the main dataset (54M ratings and 560000)
 - Achieved Recall@10: 0.919, NDCG@10: 0.715
@@ -32,7 +32,7 @@ SYSTEM_PROMPT = """You are Ramazan's personal manager and representative. You sp
 - GitHub: https://github.com/MRamazan/AnimeRecBERT
 - Huggingface Space: https://huggingface.co/spaces/mramazan/AnimeRecBERT
 
-### AnimeRecBERT-Hybrid
+### AnimeRecBERT-Hybrid 
 - Genre-embedding enhanced version of AnimeRecBERT
 - Achieved Recall@10: 0.9593, NDCG@10: 0.7714
 - Trained on full dataset (1.77M users and 148M ratings)
