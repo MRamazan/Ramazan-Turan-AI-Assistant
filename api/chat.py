@@ -6,52 +6,39 @@ from groq import Groq
 
 PROJECTS_OVERVIEW = """Ramazan's portfolio focuses on recommendation systems, computer vision, NLP, data engineering, and practical ML research.
 
-### 1. AnimeRecBERT
+### 1. Multi-view Pig Posture Recognition — Kaggle 3rd Place
+A computer vision competition project focused on recognizing pig postures from multiple camera views. Ramazan placed 3rd out of 253 competitors and earned a $100 prize from the competition's $600 total prize pool.
+- Rank: 3 / 253
+- Prize: $100
+- Total prize pool: $600
+- Leaderboard: https://www.kaggle.com/competitions/multi-view-pig-posture-recognition/leaderboard
+
+### 2. AnimeRecBERT
 A BERT-based anime recommendation system and the base version of Ramazan's recommendation work. It reached Recall@10 of 0.919 and NDCG@10 of 0.715.
 - GitHub: https://github.com/MRamazan/AnimeRecBERT
 - Hugging Face: https://huggingface.co/spaces/mramazan/AnimeRecBERT
 - Live demo: https://animerecbert.online
 
-### 2. AnimeRecBERT-Hybrid
+### 3. AnimeRecBERT-Hybrid
 A genre-embedding enhanced version of AnimeRecBERT, trained on the full 1.77M-user / 148M-rating dataset. It reached Recall@10 of 0.9593 and NDCG@10 of 0.7714.
 - GitHub: https://github.com/MRamazan/AnimeRecBERT-Hybrid
 
-### 3. User-Animelist-Dataset
+### 4. User-Animelist-Dataset
 A large-scale anime ratings dataset built from AniList, Kitsu, and MyAnimeList data. The published dataset contains 1,774,522 users, 20,237 anime titles, and 148,170,496 ratings in a MovieLens-compatible format.
 - GitHub: https://github.com/MRamazan/User-Animelist-Dataset
 - Kaggle: https://www.kaggle.com/datasets/ramazanturann/user-animelist-dataset
 
-### 4. Extract-SunRGBD-Data
+### 5. Extract-SunRGBD-Data
 A data extraction and preprocessing toolkit for SUNRGBD-based 3D computer vision research, including point-cloud export, calibration metadata, labels, and visualization utilities.
 - GitHub: https://github.com/MRamazan/Extract-SunRGBD-Data
 
-### 5. MangaRenshuu (漫画練習)
+### 6. MangaRenshuu (漫画練習)
 A private interactive manga-reading website for Japanese learners, with OCR-based speech-bubble text extraction and a romaji toggle.
 - Website: https://mangarenshuu.online
 
-### 6. 2D Room Layout Estimation
+### 7. 2D Room Layout Estimation
 A line-drawing approach for segmented room-layout images, based on Fraunhofer's SPVLoc project.
 - GitHub: https://github.com/MRamazan/2D-Room-Layout-Estimation
-
-### 7. Alzheimer Detection from Handwritten Drawings
-An AI model that estimates Alzheimer's risk from handwritten circle drawings using the DARWIN dataset. Built for the AI 4 Alzheimer's Hackathon, where it received an Honorable Mention.
-- GitHub: https://github.com/MRamazan/Alzheimer-Detection-from-Handwritten-drawings
-
-### 8. FasterRCNN Traffic 2D Object Detection
-One of Ramazan's earlier ML projects: bird's-eye-view traffic object detection with Faster R-CNN using the VisDrone dataset.
-- More code: https://github.com/MRamazan
-
-### 9. LeNet5-PyTorch
-A PyTorch implementation of the LeNet-5 architecture for learning and reproducing foundational computer-vision papers.
-- More code: https://github.com/MRamazan
-
-### 10. AlexNet-PyTorch
-A PyTorch implementation of AlexNet as part of Ramazan's paper-implementation work.
-- More code: https://github.com/MRamazan
-
-### 11. VGG-PyTorch
-A PyTorch implementation of the VGG architecture as part of Ramazan's paper-implementation work.
-- More code: https://github.com/MRamazan
 
 For the broader code portfolio: https://github.com/MRamazan"""
 
