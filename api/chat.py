@@ -163,7 +163,7 @@ class handler(BaseHTTPRequestHandler):
 
         try:
             response = client.chat.completions.create(
-                model="openai/gpt-oss-120b",
+                model="qwen/qwen3.8-27b",
                 messages=full_messages,
                 max_tokens=500
             )
